@@ -101,9 +101,6 @@ def process_ocr(file_name, rects):
         dilation = cv2.dilate(otsu, kernel, iterations=1)
         cv2.imwrite(f'{file_name_base}_{idx}_dilation2.jpg', dilation)
         text = reader.readtext(dilation, detail=0)
-        text = ' '.join(text).upper().replace('HP', 'WP').replace('NP', 'WP').replace('HP', 'WP').replace('MP', 'HP').replace('114', '11/').replace('.', ' ').replace('111', '1 11').replace(':', '').replace('1121', '11/21').replace('AS0', '450 ').replace('7E91', '7E931').replace('72931', '7E931').replace('LUT', 'LOT').replace('112', '11/21').replace('I12', '11/21')
-        if file_name == '4.jpg' and idx == 1:
-            text = '7E931 11/21 NFES 450WP 187 TYPE I] LOT O533'
         print(text)
 
         # Drawing a rectangle on copied image
